@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Email:</b>
+  <%= @golf.email %>
+</p>
+
+<p>
+  <b>Classementactuel:</b>
+  <%= @golf.classementactuel %>
+</p>
+
+<p>
+  <b>Meilleurclassement:</b>
+  <%= @golf.meilleurclassement %>
+</p>
+
+<p>
+  <b>Datemeilleurclassement:</b>
+  <%= @golf.datemeilleurclassement %>
+</p>
+
+<p>
+  <b>Points:</b>
+  <%= @golf.points %>
+</p>
+
+
+<%= link_to 'Edit', edit_golf_path(@golf) %> |
+<%= link_to 'Back', golves_path %>

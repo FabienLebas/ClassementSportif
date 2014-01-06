@@ -1,0 +1,31 @@
+<h1>Golf</h1>
+
+<table>
+  <tr>
+    <th>Email</th>
+    <th>Classementactuel</th>
+    <th>Meilleurclassement</th>
+    <th>Datemeilleurclassement</th>
+    <th>Points</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @golves.each do |golf| %>
+  <tr>
+    <td><%= golf.email %></td>
+    <td><%= golf.classementactuel %></td>
+    <td><%= golf.meilleurclassement %></td>
+    <td><%= golf.datemeilleurclassement %></td>
+    <td><%= golf.points %></td>
+    <td><%= link_to 'Show', golf %></td>
+    <td><%= link_to 'Edit', edit_golf_path(golf) %></td>
+    <td><%= link_to 'Destroy', golf, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Golf', new_golf_path %>

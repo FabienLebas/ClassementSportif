@@ -1,0 +1,33 @@
+<%= form_for(@matchsindiv) do |f| %>
+  <% if @matchsindiv.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@matchsindiv.errors.count, "error") %> prohibited this matchsindiv from being saved:</h2>
+
+      <ul>
+      <% @matchsindiv.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :email1 %><br />
+    <%= f.select(:email1, @users.map {|u| [u.email]}) %>
+  </div>
+  <div class="field">
+    <%= f.label :email2 %><br />
+    <%= f.select(:email2, @users.map {|u| [u.email]}) %>
+  </div>
+  <div class="field">
+    <%= f.label :sport %><br />
+    <%= f.select(:sport, @sports.map {|s| [s.sport]}) %>
+  </div>
+  <div class="field">
+    <%= f.label :vainqueur %><br />
+    <%= f.select(:vainqueur, @users.map {|u| [u.email]}) %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

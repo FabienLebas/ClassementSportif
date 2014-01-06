@@ -1,0 +1,37 @@
+<%= form_for(@golf) do |f| %>
+  <% if @golf.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@golf.errors.count, "error") %> prohibited this golf from being saved:</h2>
+
+      <ul>
+      <% @golf.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.text_field :email %>
+  </div>
+  <div class="field">
+    <%= f.label :classementactuel %><br />
+    <%= f.number_field :classementactuel %>
+  </div>
+  <div class="field">
+    <%= f.label :meilleurclassement %><br />
+    <%= f.number_field :meilleurclassement %>
+  </div>
+  <div class="field">
+    <%= f.label :datemeilleurclassement %><br />
+    <%= f.date_select :datemeilleurclassement %>
+  </div>
+  <div class="field">
+    <%= f.label :points %><br />
+    <%= f.number_field :points %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

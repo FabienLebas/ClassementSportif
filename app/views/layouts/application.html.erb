@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Classement</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<header>
+	<%= link_to "Users", users_path%>	
+	<%= link_to "Amis", amis_path%>
+	<%= link_to "Tennis", tennis_path%>
+	<%= link_to "Golf", golves_path%>	
+	<%= link_to "Matchs Individuels", matchsindivs_path%>
+</header>
+
+<%= yield %>
+
+</body>
+</html>

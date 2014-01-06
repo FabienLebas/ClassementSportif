@@ -1,0 +1,25 @@
+<%= form_for(@messport) do |f| %>
+  <% if @messport.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@messport.errors.count, "error") %> prohibited this messport from being saved:</h2>
+
+      <ul>
+      <% @messport.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.text_field :email %>
+  </div>
+  <div class="field">
+    <%= f.label :sport %><br />
+    <%= f.text_field :sport %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

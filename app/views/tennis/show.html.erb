@@ -1,0 +1,93 @@
+<h1>Tennis</h1>
+<br>
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Email:</b>
+  <%= @tenni.email %>
+</p>
+
+<p>
+  <b>Classementactuel:</b>
+  <%= @tenni.classementactuel %>
+</p>
+
+<p>
+  <b>Meilleurclassement:</b>
+  <%= @tenni.meilleurclassement %>
+</p>
+
+<p>
+  <b>Datemeilleurclassement:</b>
+  <%= @tenni.datemeilleurclassement %>
+</p>
+
+<p>
+  <b>Points:</b>
+  <%= @tenni.points %>
+</p>
+
+<%= link_to 'Edit', edit_tenni_path(@tenni) %> |
+<%= link_to 'Back', tennis_path %>
+
+<br><br>
+
+<h2>Ma liste d'amis du tennis</h2>
+<table cellspacing="0" cellpadding="3px" rules="all" 
+	   style="border:solid 1px #777777; border-collapse:collapse; font-family:verdana; font-size:11px"> 
+	   <tr style="background-color:lightgrey;"> 
+	      <th style="width:150px;">Joueur</th>
+	      <th style="width:150px;">Nos matchs</th>	
+	      <th style="width:150px;">Mes victoires</th>	
+			<th><%= link_to "Ajouter un nouvel ami", new_ami_path%></th>
+	</tr>
+	<% @mesAmis.each do |ami| %>
+		<tr>
+		<td><%= link_to ami.email2, Tenni.where(:email => ami.email2).first %></td> 
+		<td><%= Matchsindiv.where(:email1 => @tenni.email, :email2 => ami.email2).count %></td> 
+		<td><%= Matchsindiv.where(:email1 => @tenni.email, :email2 => ami.email2, :vainqueur => @tenni.email).count %></td> 
+		<td><%= link_to "Enregistrer un nouveau match contre lui", new_matchsindiv_path%></td>
+		</tr>
+	<%end%>
+</table>
+
+<br><br>
+
+<h2>Mes matchs</h2>
+<table cellspacing="0" cellpadding="3px" rules="all" 
+	   style="border:solid 1px #777777; border-collapse:collapse; font-family:verdana; font-size:11px"> 
+	   <tr style="background-color:lightgrey;"> 
+	      <th style="width:150px;">Joueur 1</th>
+	      <th style="width:150px;">Joueur 2</th>
+	      <th style="width:150px;">Vainqueur</th>
+	      <th style="width:200px;">Date</th>
+	</tr>
+	<% @mesMatchs.each do |match| %>
+		<tr>
+		<td><%= match.email1 %></td> 
+		<td><%= match.email2 %></td> 
+		<td><%= match.vainqueur %></td> 
+		<td><%= match.created_at %></td>
+	</tr>
+	<%end%>
+</table>
+
+<br><br>
+
+<h2>Les joueurs de tennis autour de <%= @moi.ville %></h2>
+<table cellspacing="0" cellpadding="3px" rules="all" 
+	   style="border:solid 1px #777777; border-collapse:collapse; font-family:verdana; font-size:11px"> 
+	   <tr style="background-color:lightgrey;"> 
+	      <th style="width:150px;">Nom du Joueur</th>
+	      <th style="width:150px;">Ville</th>
+	      <th style="width:150px;">Points</th>
+	</tr>
+	<% @joueursAutourDeMoi.each do |joueur| %>
+		<tr>
+		<td><%= link_to joueur.nomdejoueur, Tenni.where(:email => joueur.email).first %></td> 
+		<td><%= joueur.ville %></td> 
+		<td><%= joueur.points %></td> 
+	</tr>
+	<%end%>
+</table>
+

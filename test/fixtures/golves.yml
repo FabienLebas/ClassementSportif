@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  email: MyString
+  classementactuel: 1
+  meilleurclassement: 1
+  datemeilleurclassement: 2013-11-21
+  points: 1.5
+
+two:
+  email: MyString
+  classementactuel: 1
+  meilleurclassement: 1
+  datemeilleurclassement: 2013-11-21
+  points: 1.5

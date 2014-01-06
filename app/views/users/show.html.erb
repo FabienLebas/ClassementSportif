@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Classement général <%= User.where(:email => @user.email).first.nomdejoueur%></h1>
+
+<hr>
+
+<h3>Classement actuel : </h3>
+<h3>Points actuels : <%= User.where(:email => @user.email).first.points%></h3>
+<p>Meilleur classement : <%= User.where(:email => @user.email).first.meilleurclassement%></p>
+<p>Date du meilleur classement : <%= User.where(:email => @user.email).first.datemeilleurclassement%></p>
+
+<hr>
+<h3>Mes sports</h3>
+<table cellspacing="0" cellpadding="3px" rules="all" 
+	   style="border:solid 1px #777777; border-collapse:collapse; font-family:verdana; font-size:11px"> 
+	   <tr style="background-color:lightgrey;"> 
+	      <th style="width:150px;">Sport</th>
+	      <th style="width:150px;">Points</th>	
+	      <th style="width:150px;">Classement</th>	
+	</tr>
+	<% @mesSports.each do |sport| %>
+		<tr>
+		<td><%= link_to sport.sport, Tenni.where(:email => @user.email).first%></td> 
+		<td><%= @user.points%></td> 
+		<td><%= @user.classementactuel%></td> 
+		</tr>
+	<%end%>
+</table>
+
+<hr>
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %>

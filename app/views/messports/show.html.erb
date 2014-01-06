@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Email:</b>
+  <%= @messport.email %>
+</p>
+
+<p>
+  <b>Sport:</b>
+  <%= @messport.sport %>
+</p>
+
+
+<%= link_to 'Edit', edit_messport_path(@messport) %> |
+<%= link_to 'Back', messports_path %>

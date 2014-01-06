@@ -1,0 +1,29 @@
+<%= form_for(@ami) do |f| %>
+  <% if @ami.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@ami.errors.count, "error") %> prohibited this ami from being saved:</h2>
+
+      <ul>
+      <% @ami.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :email1 %><br />
+    <%= f.select(:email1, @users.map {|u| [u.email]}) %>
+  </div>
+  <div class="field">
+    <%= f.label :email2 %><br />
+    <%= f.select(:email2, @users.map {|u| [u.email]}) %>
+  </div>
+  <div class="field">
+    <%= f.label :sport %><br />
+    <%= f.select(:sport, @sports.map {|s| [s.sport]}) %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

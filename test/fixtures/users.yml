@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  email: MyString
+  nom: MyString
+  prenom: MyString
+  nomdejoueur: MyString
+  naissance: 2013-11-18
+  pays: MyString
+  ville: MyString
+
+two:
+  email: MyString
+  nom: MyString
+  prenom: MyString
+  nomdejoueur: MyString
+  naissance: 2013-11-18
+  pays: MyString
+  ville: MyString

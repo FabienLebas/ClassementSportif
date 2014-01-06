@@ -1,0 +1,29 @@
+<h1>Liste des matchs de sports individuels</h1>
+
+<table>
+  <tr>
+    <th>Email1</th>
+    <th>Email2</th>
+    <th>Sport</th>
+    <th>Vainqueur</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @matchsindivs.each do |matchsindiv| %>
+  <tr>
+    <td><%= matchsindiv.email1 %></td>
+    <td><%= matchsindiv.email2 %></td>
+    <td><%= matchsindiv.sport %></td>
+    <td><%= matchsindiv.vainqueur %></td>
+    <td><%= link_to 'Show', matchsindiv %></td>
+    <td><%= link_to 'Edit', edit_matchsindiv_path(matchsindiv) %></td>
+    <td><%= link_to 'Destroy', matchsindiv, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Matchsindiv', new_matchsindiv_path %>

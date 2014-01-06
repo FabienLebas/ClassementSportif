@@ -1,0 +1,27 @@
+<h1>Listing amis</h1>
+
+<table>
+  <tr>
+    <th>Email1</th>
+    <th>Email2</th>
+    <th>Sport</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @amis.each do |ami| %>
+  <tr>
+    <td><%= ami.email1 %></td>
+    <td><%= ami.email2 %></td>
+    <td><%= ami.sport %></td>
+    <td><%= link_to 'Show', ami %></td>
+    <td><%= link_to 'Edit', edit_ami_path(ami) %></td>
+    <td><%= link_to 'Destroy', ami, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Ami', new_ami_path %>
